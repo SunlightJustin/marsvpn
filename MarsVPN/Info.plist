@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Montserrat-Bold-3.otf</string>
+		<string>Montserrat-ExtraBold-4.otf</string>
+		<string>Montserrat-ExtraLight-5.otf</string>
+		<string>Montserrat-Light-6.otf</string>
+		<string>Montserrat-Medium-7.otf</string>
+		<string>Montserrat-Regular-8.otf</string>
+		<string>Montserrat-SemiBold-9.otf</string>
+		<string>Montserrat-Thin-10.otf</string>
+	</array>
+</dict>
+</plist>
