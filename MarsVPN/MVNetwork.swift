@@ -19,9 +19,9 @@ public typealias JSONCompletion = (_ result: Result<JSON?, Swift.Error>) -> Void
 ///     NOHVNetworkYY.shared.request(TestAPI.test, ...)
 ///
 /// or you can create custom `MoyaProvider` like `NOHVNetworkYY`
-class NetworkBI: MoyaProvider<MultiTarget> {
+class MVNetwork: MoyaProvider<MultiTarget> {
 
-    static let shared = NetworkBI()
+    static let shared = MVNetwork()
 
     init() {
         let plugins = [PluginType]()

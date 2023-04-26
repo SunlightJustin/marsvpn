@@ -18,7 +18,7 @@ class MVHomeViewController: LXBaseViewController {
     var ratingView: RatingView?
     
     lazy var premiumBanner: UIControl = {
-        let vc = HVConnectWidget.createPremiumControl()
+        let vc = MVConnectWidget.createPremiumControl()
         vc.sb.addEventHandlerForControlEvents(.touchUpInside) { [unowned self] _ in
             self.actionPremiumBanner()
         }
@@ -34,8 +34,8 @@ class MVHomeViewController: LXBaseViewController {
     }()
     
     var actionProtect = false
-    lazy var connectWidget: HVConnectWidget = {
-        let widget = HVConnectWidget.init(frame: .zero)
+    lazy var connectWidget: MVConnectWidget = {
+        let widget = MVConnectWidget.init(frame: .zero)
         widget.connectButton.sb.addEventHandlerForControlEvents(.touchUpInside) { [unowned self] sender in
             guard self.actionProtect == false else { return }
             
@@ -205,15 +205,15 @@ class MVHomeViewController: LXBaseViewController {
         
         // reset start time to make realRemainderTime corect
         if !MVVPNTool.shared.isConnected() {
-            GGTunnelStore(appGroup: AppGroup).startTime = nil
+            MVTunnelStore(appGroup: AppGroup).startTime = nil
             connectWidget.countLabel.stop()
         } else {
-            if let startTime = GGTunnelStore(appGroup: AppGroup).startTime {
+            if let startTime = MVTunnelStore(appGroup: AppGroup).startTime {
                 debugPrint("resetCountdown startTime = \(startTime)")
 
                 connectWidget.countLabel.startCount(from: startTime)
             } else {
-                let isWG = GGTunnelStore(appGroup: AppGroup).isWireGuard
+                let isWG = MVTunnelStore(appGroup: AppGroup).isWireGuard
                 debugPrint("resetCountdown startTime nill, isWireGuard = \(isWG)")
             }
         }

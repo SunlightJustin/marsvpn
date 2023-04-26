@@ -7,13 +7,13 @@
 import Foundation
 import Moya
 
-public enum BIAPI {
+public enum MVAPI {
     case fetchList
 //    case subscribe(subscribe_id: String, subscribe_type: String, subscribe_price: Double, subscribe_currency: String, subscribe_trial_days: Int?=nil)
 //    case reward(revenue: NSDecimalNumber, ip: String?=nil, placement: String, currency: String?)
 }
 
-extension BIAPI: TargetType {
+extension MVAPI: TargetType {
 
     public var path: String {
         switch self {
@@ -36,7 +36,7 @@ extension BIAPI: TargetType {
     }
 }
 
-extension BIAPI {
+extension MVAPI {
     
     public var baseURL: URL {
         return URL(string: "https://nameless-fire-ff5c.markso.workers.dev")!

@@ -20,8 +20,8 @@ let NetworkExtensionBundleIdSuffix = ".packagetunel"
 #else
 let AppleAppID = "1645738370"
 let AppSpecificSharedSecret = "0e1509dc8ea54a9093db181a5dbec684"
-let AppGroup = "group.com.warpvpn.data"
-let NetworkExtensionBundleIdSuffix = ".proxy"
+let AppGroup = "group.com.warp.vpn"
+let NetworkExtensionBundleIdSuffix = ".packet"
 #endif
 
 // AppsFlyer

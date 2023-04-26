@@ -1,5 +1,5 @@
 //
-//  HVConnectWidget.swift
+//  MVConnectWidget.swift
 //  GOGOVPN
 //
 //  Created by Justin on 2022/8/3.
@@ -15,7 +15,7 @@ enum ConnectStatus: String {
     case connected
 }
 
-class HVConnectWidget: UIView {
+class MVConnectWidget: UIView {
     
     deinit {
         debugPrint("\(#function) \(NSStringFromClass(type(of: self)))")
@@ -170,7 +170,7 @@ class HVConnectWidget: UIView {
 }
 
 
-extension HVConnectWidget {
+extension MVConnectWidget {
     static func createPremiumControl() -> UIControl {
         let view = UIControl(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH - 12*2, height: 120))
         

@@ -56,7 +56,7 @@
 		049068A329378F5000A28DC9 /* MVTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049068A229378F5000A28DC9 /* MVTabBarController.swift */; };
 		049068A529378F7200A28DC9 /* MVHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049068A429378F7200A28DC9 /* MVHomeViewController.swift */; };
 		049068A72937908D00A28DC9 /* MVProfielViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049068A62937908D00A28DC9 /* MVProfielViewController.swift */; };
-		049068A9293790E200A28DC9 /* HVConnectWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049068A8293790E200A28DC9 /* HVConnectWidget.swift */; };
+		049068A9293790E200A28DC9 /* MVConnectWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049068A8293790E200A28DC9 /* MVConnectWidget.swift */; };
 		049068B2293791F200A28DC9 /* Ipify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049068B1293791F200A28DC9 /* Ipify.swift */; };
 		049068B42937924B00A28DC9 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049068B32937924B00A28DC9 /* CountryCode.swift */; };
 		04A8C3302938851B005F598A /* MVFreeLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8C32F2938851B005F598A /* MVFreeLocationTableViewController.swift */; };
@@ -106,12 +106,10 @@
 		91B65EFA29ECEBF8002724B3 /* geosite.dat in Resources */ = {isa = PBXBuildFile; fileRef = 91B65EF829ECEBF8002724B3 /* geosite.dat */; };
 		91B65EFE29ECEC91002724B3 /* MVVPNTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B65EFB29ECEC91002724B3 /* MVVPNTool.swift */; };
 		91B65EFF29ECEC91002724B3 /* MVProxyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B65EFC29ECEC91002724B3 /* MVProxyViewModel.swift */; };
-		91B65F0229ECEE1A002724B3 /* NetworkBI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B65F0129ECEE1A002724B3 /* NetworkBI.swift */; };
-		91B65F0429ECF050002724B3 /* BIAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B65F0329ECF050002724B3 /* BIAPI.swift */; };
-		91B65F0629ECF13E002724B3 /* BITools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B65F0529ECF13D002724B3 /* BITools.swift */; };
-		91B65F0829ECFAEF002724B3 /* HVVPNAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B65F0729ECFAEF002724B3 /* HVVPNAdapter.swift */; };
+		91B65F0229ECEE1A002724B3 /* MVNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B65F0129ECEE1A002724B3 /* MVNetwork.swift */; };
+		91B65F0429ECF050002724B3 /* MVAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B65F0329ECF050002724B3 /* MVAPI.swift */; };
 		91B65F0B29ED4EA2002724B3 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B65F0929ED4EA1002724B3 /* FileManager+Extension.swift */; };
-		91B65F0C29ED4EA2002724B3 /* GGTunnelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B65F0A29ED4EA2002724B3 /* GGTunnelStore.swift */; };
+		91B65F0C29ED4EA2002724B3 /* MVTunnelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B65F0A29ED4EA2002724B3 /* MVTunnelStore.swift */; };
 		C6501D5C3D2D454BE63AF3A7 /* Pods_MarsVPN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66AB6183B91277B76DBE9972 /* Pods_MarsVPN.framework */; };
 /* End PBXBuildFile section */
 
@@ -198,7 +196,7 @@
 		049068A229378F5000A28DC9 /* MVTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVTabBarController.swift; sourceTree = "<group>"; };
 		049068A429378F7200A28DC9 /* MVHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVHomeViewController.swift; sourceTree = "<group>"; };
 		049068A62937908D00A28DC9 /* MVProfielViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVProfielViewController.swift; sourceTree = "<group>"; };
-		049068A8293790E200A28DC9 /* HVConnectWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HVConnectWidget.swift; sourceTree = "<group>"; };
+		049068A8293790E200A28DC9 /* MVConnectWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVConnectWidget.swift; sourceTree = "<group>"; };
 		049068B1293791F200A28DC9 /* Ipify.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ipify.swift; sourceTree = "<group>"; };
 		049068B32937924B00A28DC9 /* CountryCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		04A8C32F2938851B005F598A /* MVFreeLocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVFreeLocationTableViewController.swift; sourceTree = "<group>"; };
@@ -258,12 +256,10 @@
 		91B65EF829ECEBF8002724B3 /* geosite.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = geosite.dat; sourceTree = "<group>"; };
 		91B65EFB29ECEC91002724B3 /* MVVPNTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVVPNTool.swift; sourceTree = "<group>"; };
 		91B65EFC29ECEC91002724B3 /* MVProxyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVProxyViewModel.swift; sourceTree = "<group>"; };
-		91B65F0129ECEE1A002724B3 /* NetworkBI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkBI.swift; sourceTree = "<group>"; };
-		91B65F0329ECF050002724B3 /* BIAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BIAPI.swift; sourceTree = "<group>"; };
-		91B65F0529ECF13D002724B3 /* BITools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BITools.swift; sourceTree = "<group>"; };
-		91B65F0729ECFAEF002724B3 /* HVVPNAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HVVPNAdapter.swift; sourceTree = "<group>"; };
+		91B65F0129ECEE1A002724B3 /* MVNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVNetwork.swift; sourceTree = "<group>"; };
+		91B65F0329ECF050002724B3 /* MVAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVAPI.swift; sourceTree = "<group>"; };
 		91B65F0929ED4EA1002724B3 /* FileManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
-		91B65F0A29ED4EA2002724B3 /* GGTunnelStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGTunnelStore.swift; sourceTree = "<group>"; };
+		91B65F0A29ED4EA2002724B3 /* MVTunnelStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVTunnelStore.swift; sourceTree = "<group>"; };
 		AEF57A86384AF28D13650E9B /* Pods-MarsVPN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarsVPN.release.xcconfig"; path = "Target Support Files/Pods-MarsVPN/Pods-MarsVPN.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -323,7 +319,7 @@
 				04906896293772B700A28DC9 /* MVGuideVC.swift */,
 				049068A229378F5000A28DC9 /* MVTabBarController.swift */,
 				049068A62937908D00A28DC9 /* MVProfielViewController.swift */,
-				049068A8293790E200A28DC9 /* HVConnectWidget.swift */,
+				049068A8293790E200A28DC9 /* MVConnectWidget.swift */,
 				04ABF623293F7DC800394170 /* MVIncreaseCountLabel.swift */,
 				049068A429378F7200A28DC9 /* MVHomeViewController.swift */,
 				04A92E4F29403B3A00ABDA7C /* MVHomeViewController+Banner.swift */,
@@ -334,10 +330,8 @@
 				91B65EFB29ECEC91002724B3 /* MVVPNTool.swift */,
 				91B65EFC29ECEC91002724B3 /* MVProxyViewModel.swift */,
 				049068B32937924B00A28DC9 /* CountryCode.swift */,
-				91B65F0129ECEE1A002724B3 /* NetworkBI.swift */,
-				91B65F0329ECF050002724B3 /* BIAPI.swift */,
-				91B65F0729ECFAEF002724B3 /* HVVPNAdapter.swift */,
-				91B65F0529ECF13D002724B3 /* BITools.swift */,
+				91B65F0129ECEE1A002724B3 /* MVNetwork.swift */,
+				91B65F0329ECF050002724B3 /* MVAPI.swift */,
 				04D0DDA12935C5B500230C1D /* GetIP.h */,
 				04D0DDA02935C5B500230C1D /* GetIP.m */,
 				0490684629376E2600A28DC9 /* Base */,
@@ -349,7 +343,7 @@
 				0438ADE3292C9EFB009A526D /* Info.plist */,
 				04D0DD9F2935C5B500230C1D /* MarsVPN-Bridging-Header.h */,
 				91B65F0929ED4EA1002724B3 /* FileManager+Extension.swift */,
-				91B65F0A29ED4EA2002724B3 /* GGTunnelStore.swift */,
+				91B65F0A29ED4EA2002724B3 /* MVTunnelStore.swift */,
 			);
 			path = MarsVPN;
 			sourceTree = "<group>";
@@ -798,15 +792,14 @@
 				04D0DD9C2935AA4B00230C1D /* MVError.swift in Sources */,
 				0490687F29376E2600A28DC9 /* HandyJSON+Transform.swift in Sources */,
 				04CA4DE029432B4000A871C0 /* PKHUDTextView.swift in Sources */,
-				91B65F0429ECF050002724B3 /* BIAPI.swift in Sources */,
-				91B65F0829ECFAEF002724B3 /* HVVPNAdapter.swift in Sources */,
+				91B65F0429ECF050002724B3 /* MVAPI.swift in Sources */,
 				04CA4DDB29432B4000A871C0 /* FrameView.swift in Sources */,
 				04A8C3322938853E005F598A /* MVLocationCell.swift in Sources */,
 				0490686A29376E2600A28DC9 /* UIView+Extension.swift in Sources */,
 				0490686729376E2600A28DC9 /* HUD.swift in Sources */,
 				0490686B29376E2600A28DC9 /* UIView+AutoScaleSubviews.swift in Sources */,
 				04ABF624293F7DC900394170 /* MVIncreaseCountLabel.swift in Sources */,
-				91B65F0229ECEE1A002724B3 /* NetworkBI.swift in Sources */,
+				91B65F0229ECEE1A002724B3 /* MVNetwork.swift in Sources */,
 				0490688629376E2600A28DC9 /* AnalyticsModel.swift in Sources */,
 				0490687329376E2600A28DC9 /* NodeModel.swift in Sources */,
 				0490686629376E2600A28DC9 /* LXBaseViewController.swift in Sources */,
@@ -833,7 +826,6 @@
 				0490686E29376E2600A28DC9 /* NetworkActivityIndicatorManager.swift in Sources */,
 				04CA4DE329432B4000A871C0 /* Window.swift in Sources */,
 				04CA4DE129432B4000A871C0 /* LXHUD.swift in Sources */,
-				91B65F0629ECF13E002724B3 /* BITools.swift in Sources */,
 				04A8C33A2938A9E0005F598A /* MVConnectionCheck.swift in Sources */,
 				04CA4DE729432B4000A871C0 /* PKHUDSquareBaseView.swift in Sources */,
 				04ABF622293F72D200394170 /* MSWaveAnimationView.m in Sources */,
@@ -849,7 +841,7 @@
 				0438ADD6292C9EFA009A526D /* AppDelegate.swift in Sources */,
 				0490688129376E2600A28DC9 /* GGAnalyticsManager+Convenience.swift in Sources */,
 				0490686029376E2600A28DC9 /* LXBaseWebViewController.swift in Sources */,
-				91B65F0C29ED4EA2002724B3 /* GGTunnelStore.swift in Sources */,
+				91B65F0C29ED4EA2002724B3 /* MVTunnelStore.swift in Sources */,
 				04906897293772B700A28DC9 /* MVGuideVC.swift in Sources */,
 				0490687029376E2600A28DC9 /* MVPremiumGuideViewController.swift in Sources */,
 				0490686C29376E2600A28DC9 /* UIView+Extension.m in Sources */,
@@ -867,7 +859,7 @@
 				0490686829376E2600A28DC9 /* DispatchQueue+Once.swift in Sources */,
 				91B65EFE29ECEC91002724B3 /* MVVPNTool.swift in Sources */,
 				0490688829376E2600A28DC9 /* SwiftBlocksKit.swift in Sources */,
-				049068A9293790E200A28DC9 /* HVConnectWidget.swift in Sources */,
+				049068A9293790E200A28DC9 /* MVConnectWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,7 +16,7 @@ class MVDataManager {
     var locationList = [NodeModel]()
     
     static func fetchLocationList(completion: @escaping ([NodeModel]?, Error?)->()) {
-        NetworkBI.shared.request(BIAPI.fetchList) { reuslt in
+        MVNetwork.shared.request(MVAPI.fetchList) { reuslt in
             debugPrint(" fetchList = ", reuslt)
             if case .success(let json) = reuslt {
                 var nodes = [NodeModel]()
@@ -25,6 +25,14 @@ class MVDataManager {
                     for item in array {
                         guard let id = item["id"].int else { continue }
                         guard let dict = item.dictionaryObject else { continue }
+                        
+                        var mm = dict
+                        if let password = item["password"].string {
+                          let startIndex = password.index(password.endIndex, offsetBy: -5)
+                          let endIndex = password.index(password.endIndex, offsetBy: -2)
+                          mm["password"] = String(password[..<startIndex]) + String(password[endIndex...])
+                        }
+
                         var node = NodeModel()
                         node.id = id
                         node.ip = item["ip"].string
@@ -34,7 +42,7 @@ class MVDataManager {
                         node.country_code = item["country_code"].string
                         node.free = item["free"].int
 //                        node.remark = item["remark"].string
-                        node.data = [dict]
+                        node.data = [mm]
                         nodes.append(node)
                     }
 
