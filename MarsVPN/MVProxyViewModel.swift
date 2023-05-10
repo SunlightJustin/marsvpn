@@ -22,8 +22,7 @@ class MVProxyViewModel {
     var delegate: LXVPNProtocol?
     init(_ aDelegate: LXVPNProtocol) {
         self.delegate = aDelegate
-        MVVPNTool.shared.delegagte = self
-        
+        MVVPNTool.shared.delegagte = self        
 //        if MVVPNTool.shared.isConnected() {
 //            self.delegate?.connected()
 //        } else {
@@ -46,6 +45,25 @@ class MVProxyViewModel {
 //        } else {
         if  shouldRestart == false {
             shouldRestartGetNewNodes = false
+            
+            // Set vip befor start tunel
+            #if DEBUG
+            let isPremiumVIP = MVConfigModel.isPremium()
+            MVTunnelStore(appGroup: AppGroup).isPremiumVIP = isPremiumVIP
+            if isPremiumVIP == false {
+                MVTunnelStore(appGroup: AppGroup).freeDaysFireDate = Date().adjust(.second, offset: 10)
+            } else {
+                MVTunnelStore(appGroup: AppGroup).freeDaysFireDate = nil
+            }
+            #else
+            let isPremiumVIP = MVConfigModel.isPremium()
+            MVTunnelStore(appGroup: AppGroup).isPremiumVIP = isPremiumVIP
+            if isPremiumVIP == false {
+                MVTunnelStore(appGroup: AppGroup).freeDaysFireDate = MVConfigModel.freeExpireDate
+            } else {
+                MVTunnelStore(appGroup: AppGroup).freeDaysFireDate = nil
+            }
+            #endif
             
             startTime = Date()
             MVVPNTool.shared.start { error in

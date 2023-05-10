@@ -37,6 +37,11 @@ public class MVVPNTool {
 
     public init() {
         saveDefaultConfigIfNeed()
+        fetchManager { error in
+            if let vt = self.manager {
+                self.observeStatus(vt)
+            }
+        }
     }
     
     public func DNS1111() {

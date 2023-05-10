@@ -58,11 +58,23 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         setTunnelNetworkSettings(tunnelNetworkSettings) { [weak self] error in
             self?.leafConnect()
             completionHandler(nil)
+            
+            if error == nil {
+                MVTunnelStore(appGroup: AppGroup).startTime = Date()
+                
+                // no vip to countdown
+                if MVTunnelStore(appGroup: AppGroup).isPremiumVIP == false {
+                    self?.checkFreeDaysFire()
+                }
+            }
         }
     }
 
     override func stopTunnel(with reason: NEProviderStopReason, completionHandler: @escaping () -> Void) {
-        leaf_shutdown(leafId)
+#if targetEnvironment(simulator)
+#else
+leaf_shutdown(leafId)
+#endif
         // Add code here to start the process of stopping the tunnel.
         completionHandler()
     }
@@ -96,7 +108,10 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
 
         DispatchQueue.global(qos: .userInteractive).async {
             signal(SIGPIPE, SIG_IGN)
+#if targetEnvironment(simulator)
+#else
             leaf_run(leafId, String(url.path))
+#endif
         }
     }
     
@@ -158,3 +173,13 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
 
 
 
+extension PacketTunnelProvider {
+    
+    func checkFreeDaysFire() {
+        if let freeDay = MVTunnelStore(appGroup: AppGroup).freeDaysFireDate, freeDay < Date() {
+            MVTunnelStore.updateAvailableTimeWhenStopTunel()
+//            wg_log(.info, message: "checkFreeDaysFire exit(0)")
+            exit(0)
+        }
+    }
+}

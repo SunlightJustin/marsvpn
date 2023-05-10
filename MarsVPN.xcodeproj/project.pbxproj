@@ -100,6 +100,8 @@
 		04D0DD9C2935AA4B00230C1D /* MVError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D0DD9B2935AA4B00230C1D /* MVError.swift */; };
 		04D0DDA22935C5B500230C1D /* GetIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D0DDA02935C5B500230C1D /* GetIP.m */; };
 		04FDAD6E294EC9D7007DB2C7 /* GoogleService-Info-test.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04FDAD6D294EC9D7007DB2C7 /* GoogleService-Info-test.plist */; };
+		914E2C2F2A0B36A5004CB5B6 /* MVAPISystemConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914E2C2E2A0B36A5004CB5B6 /* MVAPISystemConfig.swift */; };
+		914E2C302A0B876C004CB5B6 /* MVTunnelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B65F0A29ED4EA2002724B3 /* MVTunnelStore.swift */; };
 		91B65EF529ECEBED002724B3 /* libleaf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B65EF229ECEBEC002724B3 /* libleaf.a */; };
 		91B65EF629ECEBED002724B3 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B65EF429ECEBED002724B3 /* PacketTunnelProvider.swift */; };
 		91B65EF929ECEBF8002724B3 /* cacert.pem in Resources */ = {isa = PBXBuildFile; fileRef = 91B65EF729ECEBF8002724B3 /* cacert.pem */; };
@@ -248,6 +250,7 @@
 		04FDAD6D294EC9D7007DB2C7 /* GoogleService-Info-test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-test.plist"; sourceTree = "<group>"; };
 		66AB6183B91277B76DBE9972 /* Pods_MarsVPN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarsVPN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		820F3C2B3CE089EDDA20734A /* Pods-MarsVPN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarsVPN.debug.xcconfig"; path = "Target Support Files/Pods-MarsVPN/Pods-MarsVPN.debug.xcconfig"; sourceTree = "<group>"; };
+		914E2C2E2A0B36A5004CB5B6 /* MVAPISystemConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVAPISystemConfig.swift; sourceTree = "<group>"; };
 		91B65EF129ECEBEC002724B3 /* leaf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leaf.h; sourceTree = "<group>"; };
 		91B65EF229ECEBEC002724B3 /* libleaf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libleaf.a; sourceTree = "<group>"; };
 		91B65EF329ECEBEC002724B3 /* LeafExtension-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LeafExtension-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -332,6 +335,7 @@
 				049068B32937924B00A28DC9 /* CountryCode.swift */,
 				91B65F0129ECEE1A002724B3 /* MVNetwork.swift */,
 				91B65F0329ECF050002724B3 /* MVAPI.swift */,
+				914E2C2E2A0B36A5004CB5B6 /* MVAPISystemConfig.swift */,
 				04D0DDA12935C5B500230C1D /* GetIP.h */,
 				04D0DDA02935C5B500230C1D /* GetIP.m */,
 				0490684629376E2600A28DC9 /* Base */,
@@ -786,6 +790,7 @@
 				0490685E29376E2600A28DC9 /* UIAlertViewController+Extension.swift in Sources */,
 				0490685F29376E2600A28DC9 /* LXBaseNavigationController.swift in Sources */,
 				04CA4DDA29432B4000A871C0 /* PKHUDAnimating.swift in Sources */,
+				914E2C2F2A0B36A5004CB5B6 /* MVAPISystemConfig.swift in Sources */,
 				0490684E29376E2600A28DC9 /* UITextField+Consistent.swift in Sources */,
 				0490686929376E2600A28DC9 /* UIViewController+Extensions.swift in Sources */,
 				0490685C29376E2600A28DC9 /* AppInfo.swift in Sources */,
@@ -867,6 +872,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				914E2C302A0B876C004CB5B6 /* MVTunnelStore.swift in Sources */,
 				91B65EF629ECEBED002724B3 /* PacketTunnelProvider.swift in Sources */,
 				04A8C3842938AAEF005F598A /* MVConfiguration.swift in Sources */,
 			);
@@ -1045,7 +1051,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.start.vpn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1086,7 +1092,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gogo.vpn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

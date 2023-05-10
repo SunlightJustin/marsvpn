@@ -18,7 +18,7 @@ enum AppInfo {
 
     #if DEBUG || ADHOC
 //    static let uniquePrefix = "app.dd.rr"
-    static let uniquePrefix = "yywekddee"
+    static let uniquePrefix = "yywekddeer"
 
     #else
     /**

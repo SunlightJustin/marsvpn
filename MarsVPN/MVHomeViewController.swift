@@ -69,7 +69,10 @@ class MVHomeViewController: LXBaseViewController {
         starView = banner
 
         setConnectStatus(.connect, animation: false)
-        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActiveNotification), name: UIApplication.didBecomeActiveNotification, object: nil)        
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActiveNotification), name: UIApplication.didBecomeActiveNotification, object: nil)
+        
+        // init viewModel
+        let _ = viewModel.delegate
     }
     
     @objc
@@ -145,13 +148,14 @@ class MVHomeViewController: LXBaseViewController {
                     self.setConnectStatus(.connected)
                     self.resetCountdown()
                 } else {
-    //                if MVVPNTool.shared.manager == nil {
-    //                    MVVPNTool.shared.fetchManager { error in
-    //                        if MVVPNTool.shared.isConnected() {
-    //                            self.setConnectStatus(.connected)
-    //                        }
-    //                    }
-    //                }
+                    if MVVPNTool.shared.manager == nil {
+                        MVVPNTool.shared.fetchManager { error in
+                            if MVVPNTool.shared.isConnected() {
+                                self.setConnectStatus(.connected)
+                                self.resetCountdown()
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -225,7 +229,11 @@ class MVHomeViewController: LXBaseViewController {
         }
         
         if self.connectWidget.state == .connect {
-            guard MVConfigModel.isVIP() else { return showPremium() }
+//            guard MVConfigModel.isVIP() else { return showPremium() }
+            if let model = MVConfigModel.current?.currentNode, !model.isFree && !MVConfigModel.isVIP() {
+                showPremium()
+                return
+            }
             
             self.setConnectStatus(.connect, animation: false)
             self.setConnectStatus(.connecting)

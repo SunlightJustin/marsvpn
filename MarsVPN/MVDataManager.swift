@@ -33,7 +33,7 @@ class MVDataManager {
                           mm["password"] = String(password[..<startIndex]) + String(password[endIndex...])
                         }
 
-                        var node = NodeModel()
+                        let node = NodeModel()
                         node.id = id
                         node.ip = item["ip"].string
                         node.name = item["name"].string
@@ -45,8 +45,14 @@ class MVDataManager {
                         node.data = [mm]
                         nodes.append(node)
                     }
-
                 }
+                
+                // default value
+                if MVConfigModel.current?.currentNode == nil {
+                    MVConfigModel.current?.currentNode = nodes.first
+                }
+
+                // save location
                 shared.locationList = nodes
                 completion(nodes, nil)
             } else {
@@ -54,8 +60,24 @@ class MVDataManager {
             }
         }
     }
-
     
+    private func fetchAppConfig(completion: @escaping ([String: Any]?, Error?)->()) {
+        MVNetwork.shared.request(MVAPISystemConfig.fetch) { reuslt in
+            debugPrint(" MVAPISystemConfig fetch = ", reuslt)
+            if case .success(let json) = reuslt {
+                
+                if let model = SystemModel.deserialize(from: json?.dictionaryObject) {
+                    SystemModel.current = model
+                    SystemModel.saveToFile()
+                    debugPrint("fetched app config = \(model.toJSONString())")
+                }
+                completion(json?.dictionaryObject, nil)
+            } else {
+                completion(nil, MVError(code: MVError.Code.unknown, message: "fetch error"))
+            }
+        }
+    }
+
 //    static func fetchLocationList(completion: @escaping ([LocationModel]?, Error?)->()) {
 //        let collectionRef = Firestore.firestore().collection(LinesCollectionName)
 //        collectionRef.order(by: "order").getDocuments() { (querySnapshot, err) in
@@ -182,30 +204,30 @@ extension MVDataManager {
         }
     }
     
-    private func fetchAppConfig(completion: @escaping ([String: Any]?, Error?)->()) {
-//        let collectionRef = Firestore.firestore().collection("config").document("app")
-//        collectionRef.getDocument { snapshot, err in
-//            guard err == nil else {
-//                debugPrint("Error getting documents: \(err)")
-//                completion(nil, err)
-//                return
-//            }
-//
-//            guard let snapshot = snapshot else {
-//                debugPrint("empty fetchAppConfig")
-//                completion(nil, MVError(code: .unknown, message: "Empty data"))
-//                return
-//            }
-//
-//            if let model = SystemModel.deserialize(from: snapshot.data()) {
-//                SystemModel.current = model
-//                SystemModel.saveToFile()
-//
-//                debugPrint("fetched app config = \(model.toJSONString())")
-//
-//            }
-//
-//            completion(snapshot.data(), nil)
-//        }
-    }
+//    private func fetchAppConfig(completion: @escaping ([String: Any]?, Error?)->()) {
+////        let collectionRef = Firestore.firestore().collection("config").document("app")
+////        collectionRef.getDocument { snapshot, err in
+////            guard err == nil else {
+////                debugPrint("Error getting documents: \(err)")
+////                completion(nil, err)
+////                return
+////            }
+////
+////            guard let snapshot = snapshot else {
+////                debugPrint("empty fetchAppConfig")
+////                completion(nil, MVError(code: .unknown, message: "Empty data"))
+////                return
+////            }
+////
+////            if let model = SystemModel.deserialize(from: snapshot.data()) {
+////                SystemModel.current = model
+////                SystemModel.saveToFile()
+////
+////                debugPrint("fetched app config = \(model.toJSONString())")
+////
+////            }
+////
+////            completion(snapshot.data(), nil)
+////        }
+//    }
 }

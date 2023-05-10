@@ -21,6 +21,10 @@ public final class SystemModel: FileManagerProtocol {
 extension SystemModel {
     
     static var isAllowedRegion: Bool {
+        #if DEBUG
+        return true
+        #endif
+        
         guard CountryCode.isCN_IR else { return true }
         
         if let array = SystemModel.current?.allow_vip_short_uid, array.contains(AppInfo.shortDeviceId) {
