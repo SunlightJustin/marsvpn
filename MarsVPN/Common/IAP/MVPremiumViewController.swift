@@ -428,7 +428,7 @@ class MVPremiumViewController: LXBaseTableViewController {
 
 
         HUD.startLoading()
-        MVIAPManager.purchase(productIdentify: productIdentifier) { (result, errMsg, date) in
+        MVIAPManager.purchase(productIdentify: productIdentifier) { (result, error, date) in
             if result {
                 HUD.flash("Purchase Successfully")
 
@@ -437,10 +437,13 @@ class MVPremiumViewController: LXBaseTableViewController {
                 } else {
                     GGAnalyticsManager.logEvent(event0: FirebaseAnalyticsEvent0Name.act_purchase_result_1year_success, event1: .payment_open_from)
                 }
+                
+                GGAnalyticsManager.logEvent(FirebaseAnalyticsEvent0Name.act_purchase_success)
                 self.pushNext()
             } else {
-                if let str = errMsg {
-                    if str == payment_sheet_cancelled {
+                if let error = error {
+                    // don't show error message
+                    if .paymentCancelled == error.code {
                         HUD.hide()
 
                         if index == 0 {
@@ -449,20 +452,22 @@ class MVPremiumViewController: LXBaseTableViewController {
                             GGAnalyticsManager.logEvent(event0: FirebaseAnalyticsEvent0Name.act_purchase_result_1year_canceled, event1: .payment_open_from)
                         }
                     } else {
-                        let text = str.count > 0 ? str : "Unkonwned2 error"
+                        let text = error.localizedMessage.count > 0 ? error.localizedMessage : "Unkonwned2 error"
                         HUD.flash(text)
                         if index == 0 {
                             GGAnalyticsManager.logEvent(event0: FirebaseAnalyticsEvent0Name.act_purchase_result_1month_failed, event1: .payment_open_from)
                         } else {
                             GGAnalyticsManager.logEvent(event0: FirebaseAnalyticsEvent0Name.act_purchase_result_1year_failed, event1: .payment_open_from)
                         }
+                        
+                        GGAnalyticsManager.logEvent(FirebaseAnalyticsEvent0Name.act_purchase_failed, event1: error.code.rawValue.string )
                     }
                 } else {
                     HUD.flash("Unkonwned1 error")
                 }
             }
-            debugPrint("MVIAPManager.shared.purchase result = \(result), err = \(errMsg)")
-            self.complete?(result, errMsg)
+            debugPrint("MVIAPManager.shared.purchase result = \(result), err = \(error?.localizedMessage)")
+            self.complete?(result, error?.localizedMessage)
         }
     }
     

@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftyStoreKit
+import StoreKit
 
 extension MVIAPManager {
     
@@ -49,8 +51,8 @@ extension MVIAPManager {
         }
     }
     
-    static func purchase(applicationUsername: String = "", productIdentify: String, completion: @escaping (Bool, String?, Date?)->()) {
-        shared.purchase(productIdentify: productIdentify) { result, errMsg, date in
+    static func purchase(applicationUsername: String = "", productIdentify: String, completion: @escaping (Bool, SKError?, Date?)->()) {
+        shared.purchase(productIdentify: productIdentify) { result, err, date in
             debugPrint("static func purchase, result=\(result), date=\(date)")
             
             MVConfigModel.expireDate = date
@@ -59,7 +61,7 @@ extension MVIAPManager {
                 MVDataManager.fetchLocationListWhenUserBecomeVIP()
             }
             debugPrint("MVConfigModel.expireDate = \(MVConfigModel.expireDate)")
-            completion(result, errMsg, date)
+            completion(result, err, date)
         }
     }
 }

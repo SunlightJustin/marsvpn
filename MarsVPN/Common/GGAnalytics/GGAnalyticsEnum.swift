@@ -9,6 +9,9 @@
 import Foundation
 
 enum FirebaseAnalyticsEvent0Name {
+    
+    static let act_purchase_failed = "act_purchase_failed"
+    static let act_purchase_success = "act_purchase_success"
 
     static let act_purchase_result_1month_success = "act_purchase_result_1month_success"
     static let act_purchase_result_1month_failed = "act_purchase_result_1month_failed"

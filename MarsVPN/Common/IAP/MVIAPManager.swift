@@ -120,13 +120,15 @@ public class MVIAPManager: NSObject {
         super.init()
     }
     
-    public func purchase(applicationUsername: String = "", productIdentify: String, completion: @escaping (Bool, String?, Date?)->()) {
+    public func purchase(applicationUsername: String = "", productIdentify: String, completion: @escaping (Bool, SKError?, Date?)->()) {
         SwiftyStoreKit.purchaseProduct(productIdentify, atomically: false, applicationUsername: applicationUsername) { result in
             
             if case .success(let purchase) = result {
                 self.purchasedSubscriptions = true  // 标记已经购买
                 SwiftyStoreKit.finishTransaction(purchase.transaction)
-                self.hasPurchaseSubscriptions(completion: completion)
+                self.hasPurchaseSubscriptions { result, errMsg, expireDate in
+                    completion(result, nil, expireDate)
+                }
             } else if case .error(let error) = result {
                 var msg: String? = (error as NSError).localizedDescription
 
@@ -145,7 +147,7 @@ public class MVIAPManager: NSObject {
 
                 msg = ((msg?.count ?? 0) > 0) ? msg : "Unknown error is empty."
                 debugPrint("error = error = ", type(of: error), error.errorCode, error.errorUserInfo)
-                completion(false, msg, nil)
+                completion(false, error, nil)
             }
         }
     }
@@ -218,7 +220,7 @@ public class MVIAPManager: NSObject {
         SwiftyStoreKit.restorePurchases(atomically: false) { results in
             if results.restoreFailedPurchases.count > 0 {
                 guard let (_, msg) = results.restoreFailedPurchases.first else {
-                    return completion(false, "Nothing to Restore", nil)
+                    return completion(false, "Nothing to restore", nil)
                 }
                 
                 completion(false, msg, nil)
@@ -233,26 +235,26 @@ public class MVIAPManager: NSObject {
         }
     }
     
-    func restore1(completion: @escaping (Data?, String?, SKPaymentTransaction?, String?, Bool)->()) {
-        SwiftyStoreKit.restorePurchases(atomically: true) { results in
-            if results.restoreFailedPurchases.count > 0 {
-                guard let (_, msg) = results.restoreFailedPurchases.first else {
-                    return completion(nil, nil, nil, "Nothing to Restore", false)
-                }
-                
-                completion(nil, nil, nil, msg, false)
-                debugPrint("Restore Failed: \(results.restoreFailedPurchases)")
-            }
-            else if results.restoredPurchases.count > 0 {
-                self.didReceivePurchaseDetails(forceRefresh: true) { receiptData, errMsg in
-                    completion(receiptData, nil, nil, errMsg, false)
-                }
-            } else {
-                completion(nil, nil, nil, "Nothing to Restore", false)
-                debugPrint("Nothing to Restore")
-            }
-        }
-    }
+//    func restore1(completion: @escaping (Data?, String?, SKPaymentTransaction?, String?, Bool)->()) {
+//        SwiftyStoreKit.restorePurchases(atomically: true) { results in
+//            if results.restoreFailedPurchases.count > 0 {
+//                guard let (_, msg) = results.restoreFailedPurchases.first else {
+//                    return completion(nil, nil, nil, "Nothing to Restore", false)
+//                }
+//
+//                completion(nil, nil, nil, msg, false)
+//                debugPrint("Restore Failed: \(results.restoreFailedPurchases)")
+//            }
+//            else if results.restoredPurchases.count > 0 {
+//                self.didReceivePurchaseDetails(forceRefresh: true) { receiptData, errMsg in
+//                    completion(receiptData, nil, nil, errMsg, false)
+//                }
+//            } else {
+//                completion(nil, nil, nil, "Nothing to Restore", false)
+//                debugPrint("Nothing to Restore")
+//            }
+//        }
+//    }
     
     public func canMakePayments() -> Bool {
         return SwiftyStoreKit.canMakePayments
